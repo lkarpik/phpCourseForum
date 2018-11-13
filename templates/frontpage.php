@@ -26,5 +26,12 @@
   </ul>
   <?php else : ?>
     <p>No topics to display</p>
-<?php endif; ?>
+<?php endif; ?>      
+  
+  <h3>Forum Statistics</h3>
+  <ul>
+    <li>Total Number of Users: <strong><?= $usersCount ?></strong></li>
+    <li>Total Number of Topics: <strong><?= $topicsCount ?></strong></li>
+    <li>Total Number of Categories: <strong><?= $catCount ?></strong></li>
+  </ul>
 <?php include 'includes/footer.php'; ?>
