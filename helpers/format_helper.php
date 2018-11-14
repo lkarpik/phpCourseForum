@@ -12,7 +12,16 @@ function is_active($category) {
             return '';
         }
     } else 
-        if ($category == null) {
+        if (!isset($use_id) && $category == null && basename($_SERVER["REQUEST_URI"], ".php") == 'topics') {
             return 'bg-dark text-light'; 
         }
+}
+
+// Add class 'active' for active navbar
+function is_activeNav($link) {
+    if($link == basename($_SERVER["REQUEST_URI"], ".php")) {
+        return "active";
+    } else {
+        return "";
+    }
 }

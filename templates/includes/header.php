@@ -32,13 +32,13 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link <?= is_activeNav('index') ?>" href="index.php">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="register.php">Create an account</a>
+            <a class="nav-link <?= is_activeNav('register') ?>" href="register.php">Create an account</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="create.php">Create Topic</a>
+            <a class="nav-link <?= is_activeNav('create') ?>" href="create.php">Create Topic</a>
           </li>
           
         </ul>
@@ -55,3 +55,4 @@
                     <h4 class="float-right">A simple forum in PHP</h4>
                     <div class="clearfix"></div>
                     <hr>
+                    <?php echo(basename($_SERVER["REQUEST_URI"])); ?>
