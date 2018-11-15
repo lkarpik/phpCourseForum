@@ -55,4 +55,4 @@
                     <h4 class="float-right">A simple forum in PHP</h4>
                     <div class="clearfix"></div>
                     <hr>
-                    <?php echo(basename($_SERVER["REQUEST_URI"])); ?>
+                    <?php displayMessage(); ?>
