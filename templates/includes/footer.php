@@ -5,7 +5,7 @@
             <div class="sidebar">
               <div class="jumbotron">
                 <h3>Login form</h3>
-                <form role="form">
+                <form role="form" method="post" action="login.php">
                     <div class="form-group">
                       <label>Username</label>
                       <input name="username" type="text" class="form-control" placeholder="Enter Username">
@@ -14,7 +14,8 @@
                       <label>Password</label>
                       <input name="password" type="password" class="form-control" placeholder="Enter Password">
                     </div>			
-                    <button name="do_login" type="submit" class="btn btn-dark">Login</button> <a  class="btn btn-secondary" href="register.html"> Create Account</a>
+                    <button name="do_login" type="submit" class="btn btn-dark">Login</button> 
+                    <a class="btn btn-secondary" href="register.php"> Create Account</a>
                   </form>
               </div>
               <div class="jumbotron">

@@ -2,8 +2,8 @@
     <ul class="topics list-group">
     <li class="topic list-group-item bg-transparent">
         <div class="row">
-        <div class="col-2">
-            <img class="avatar float-left p-0" src="<?= BASE_URI ?>templates/img/<?= $topic->avatar ?>" />
+        <div class="col-2 p-0">
+            <img class="avatar float-left" src="<?= BASE_URI ?>templates/img/<?= $topic->avatar ?>" />
             <div class="label"> <a href="<?= BASE_URI ?>topics.php?user_id=<?= $topic->user_id ?>"><?= $topic->username ?></a><br><small>posts: <?= userPostCount($topic->user_id) ?></small> </div>
 
         </div>
@@ -17,8 +17,8 @@
     <?php foreach ($replies as $row) : ?>
     <li class="topic list-group-item">
         <div class="row">
-            <div class="col-2">
-            <img class="avatar float-left p-0" src="<?= BASE_URI ?>templates/img/<?= $row->avatar ?>" /><div class="label"> <a href="<?= BASE_URI ?>topics.php?user_id=<?= $row->user_id ?>"><?= $row->username ?></a><br><small>posts: <?= userPostCount($row->user_id) ?></small></div>
+            <div class="col-2 p-0">
+            <img class="avatar float-left" src="<?= BASE_URI ?>templates/img/<?= $row->avatar ?>" /><div class="label"> <a href="<?= BASE_URI ?>topics.php?user_id=<?= $row->user_id ?>"><?= $row->username ?></a><br><small>posts: <?= userPostCount($row->user_id) ?></small></div>
             </div>
             <div class="col-10">
                 <div class="topic-content float-left">

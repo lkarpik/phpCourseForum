@@ -3,6 +3,7 @@
 <?php
 $topic = new Topic;
 $user = new User;
+$validate = new Validator;
 
 if (isset($_POST['register'])) {
     // Create data array
@@ -15,6 +16,36 @@ if (isset($_POST['register'])) {
     $data['about'] = $_POST['about']; 
     $data['last_activity'] = date("Y-m-d H:i:s"); 
 
+    // require fields array
+    $field_array = array('name', 'email', 'username', 'password', 'password2');
+
+    if ($validate->isRequired($field_array)) {
+        if ($validate->isValidEmail($data['email'])) {
+            if ($validate->passMatch($data['password'], $data['password2'])) {
+                if (!empty($_FILES['userfile'])) {
+                    $user->uploadAvatar();
+                    $data['avatar'] = $_FILES['avatar']['name'];
+                } else {
+                    $data['avatar'] = 'gravatar.jpg';
+                }
+            
+                // Register User
+                if ($user->register($data)) {
+                    redirect('index.php', 'You can log in', 'success');
+                } else {
+                    redirect('index.php', 'Something wrong with register', 'error');
+                }
+            } else {
+                redirect('register.php', 'Password did not match', 'error');
+            }
+        } else {
+            redirect('register.php', 'Not valid email', 'error');
+        }
+    } else {
+        redirect('register.php', 'All fields are required', 'error');
+    }
+
+/*
     // Upload avatar
     if (!empty($_FILES['userfile'])) {
         $user->uploadAvatar();
@@ -29,6 +60,7 @@ if (isset($_POST['register'])) {
     } else {
         redirect('index.php', 'Something wrong with register', 'error');
     }
+*/
 }
 
 // Get template 
