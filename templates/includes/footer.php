@@ -5,6 +5,16 @@
             <div class="sidebar">
               <div class="jumbotron">
                 <h3>Login form</h3>
+                <?php if(isLoggedIn()) : ?>
+                  <div class="userdata">
+                  You are logged in as <span class="text-primary"><?= $_SESSION['username'] ?> </span>
+                  </div><br>
+                  <form role="form" method="post" action="logout.php">
+                    			
+                    <button name="do_logout" type="submit" class="btn btn-dark">Logout</button> 
+                    
+                  </form>
+                <?php else : ?>
                 <form role="form" method="post" action="login.php">
                     <div class="form-group">
                       <label>Username</label>
@@ -16,7 +26,8 @@
                     </div>			
                     <button name="do_login" type="submit" class="btn btn-dark">Login</button> 
                     <a class="btn btn-secondary" href="register.php"> Create Account</a>
-                  </form>
+                </form>
+                <?php endif; ?>
               </div>
               <div class="jumbotron">
                   <h3>Categories</h3>
