@@ -34,12 +34,16 @@
           <li class="nav-item">
             <a class="nav-link <?= is_activeNav('index') ?>" href="index.php">Home <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link <?= is_activeNav('register') ?>" href="register.php">Create an account</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link <?= is_activeNav('create') ?>" href="create.php">Create Topic</a>
-          </li>
+          <?php if(!isLoggedIn()) : ?>
+            <li class="nav-item">
+              <a class="nav-link <?= is_activeNav('register') ?>" href="register.php">Create an account</a>
+            </li>
+          <?php else : ?>
+            <li class="nav-item">
+              <a class="nav-link <?= is_activeNav('create') ?>" href="create.php">Create a topic</a>
+            </li>
+          <?php endif; ?>
+          
           
         </ul>
         

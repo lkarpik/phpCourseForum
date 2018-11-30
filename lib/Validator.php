@@ -4,7 +4,7 @@ class Validator {
 
     public function isRequired ($field_array) {
         foreach ($field_array as $field) {
-            if($_POST[''.$field.''] == '') {
+            if($_POST[$field] == '') {
                 return false; 
             }
         }

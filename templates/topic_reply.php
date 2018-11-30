@@ -29,10 +29,11 @@
     </li><hr>
     <?php endforeach; ?>
     </ul>
-    <form>
     <h3>Replay to topic</h3>
+    <?php if(isLoggedIn()) : ?>
+    <form role="form" method="POST" action="topic.php?id=<?= $topic->id ?>">
     <div class="form-group">
-        <textarea name="reply" id="reply" cols="30" rows="50" class="form-control"></textarea>
+        <textarea name="body" id="reply" cols="30" rows="50" class="form-control"></textarea>
         <script>
             ClassicEditor
                 .create( document.querySelector( '#reply' ) )
@@ -40,7 +41,11 @@
                     console.error( error );
                 } );
         </script>
-        <input name="register" type="submit" class="btn btn-dark" value="Reply"/>
+         
+        <button name="do_reply" type="submit" class="btn btn-dark">Reply</button>
+    <?php else : ?>
+        <p> Login to reply </p>
+    <?php endif; ?>
     </div>
     </form>
 <?php include 'includes/footer.php'; ?>

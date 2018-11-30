@@ -17,10 +17,7 @@ function replyCount($topic_id) {
 function getCategories() {
     $db = new Database;
     $db->query("SELECT * FROM categories");
-    
-    
     $result= $db->resultset();
-    
     return $result;
 }
 // Get numeber of topics by category ID
