@@ -20,7 +20,7 @@
             </div>
             
           </div>
-          </div>
+        </div>
         </li><hr>  
 <?php endforeach; ?>
   </ul>
